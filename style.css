@@ -1,0 +1,184 @@
+/* VARIAVEIS COLORAÇÃO, FLEXIBILIDADE PARA CORES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --ff-heading: "Epilogue", sans-serif;
+  --ff-texting: "Open sans" sans-serif;
+
+  --hue: 250;
+
+  --bg-primary: hsl(var(--hue), 22%, 20%);
+  --fc-primary: hsl(var(--hue), 0%, 100%);
+  --fc-secondary: hsl(var(--hue), 50%, 80%);
+  --fc-secondary-dark: hsl (var(--hue), 100%, 11%, 1);
+
+  font-size: 62.5%;
+  --fs-body: 1.6rem;
+  --fs-heading: clamp(4rem, 1rem + 5vw, 5.6rem);
+  --fs-heading-sm: clamp(3rem, 0.5rem + 3vw, 4rem);
+}
+body {
+  font-family: var(--ff-texting);
+
+  background-color: var(--bg-primary);
+
+  color: var(--fc-primary);
+
+  font-size: var(--fs-body);
+}
+
+.page {
+  max-width: 33rem;
+   /* englobamos o main e o header na page */
+  margin: 0 auto;
+}
+
+
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+header {
+  margin: 10rem 0 8rem;
+
+  font-family: var(--ff-heading);
+  text-align: center;
+  animation: topdown 700ms;
+}
+
+header p {
+  font-weight: 400;
+  color: var(--fc-secondary);
+  text-transform: uppercase;
+
+  line-height: 3.2rem;
+  letter-spacing: 3px;
+  margin-bottom: 1.7rem;
+}
+
+header h1 {
+  font-weight: 800;
+  font-size: var(--fs-heading);
+  line-height: 4.8rem;
+}
+
+main {
+  display: grid;
+  gap: 3.2rem;
+  animation: downtop 700ms 350ms backwards;
+  /* o primeiro ms é onde começa o clique, o segundo ms é o delay em relação 
+  aonde vai terminar, no caso no opaccity 1 (100%) */
+  /* usaremos backwards ou forwards para usar o delay sempre*/
+}
+
+.card {
+  position: relative;
+  font-family: var(--ff-heading);
+}
+
+.card img {
+  height: 41.6rem;
+  object-fit: cover;
+  filter: brightness(0.5) saturate(1.5);
+  border-radius: 6px;
+
+  transition: all 200ms;
+}
+
+.card img:hover {
+  transform: scale(1.1); /* transições das img */
+  opacity: 0.4;
+}
+.card h2 {
+  position: absolute;
+  bottom: 5.2rem;
+  left: 2.8rem;
+  font-size: var(--fs-heading-sm);
+
+  font-size: 4rem; /* versao desktop */
+  font-weight: 800;
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem;
+}
+
+.card h2 span {
+  border-radius: 2rem;
+  background-color: var(--fc-secondary);
+  font-size: var(--fs-body);
+  color: var(--fc-secondary-dark);
+  font-weight: 400;
+  padding: 0 1.6rem;
+  height: 3.8rem;
+
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content; /* tiramos a expansao dos spans em relação ao texto em baixo */
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: transleteY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 700px) {
+  
+  .page {
+    max-width: 170rem; /* versao desktop */
+
+    padding: 0 5rem; /* versao desktop */
+  }
+  main {
+    grid-template-columns: 1fr 1fr; /* mesmo alinhamento de colunas
+    tanto em cima quanto em baixo */
+  }
+}
+
+@media (min-width: 930px) {
+  main {
+    grid-template-areas:
+      "A B B" /* versao desktop */
+      "C C D";
+  }
+
+  main div:nth-child(1) {
+    /* versao desktop */
+    grid-area: A;
+  }
+  main div:nth-child(2) {
+    /* versao desktop */
+    grid-area: B;
+  }
+  main div:nth-child(3) {
+    /* versao desktop */
+    grid-area: C;
+  }
+  main div:nth-child(4) {
+    /* versao desktop */
+    grid-area: D;
+  }
+}
