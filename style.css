@@ -1,4 +1,4 @@
-/* VARIAVEIS COLORAÇÃO, FLEXIBILIDADE PARA CORES */
+/* FLEXIBILITY WITH COLORS */
 * {
   margin: 0;
   padding: 0;
@@ -32,11 +32,9 @@ body {
 
 .page {
   max-width: 33rem;
-   /* englobamos o main e o header na page */
+  /* main and header together in the page */
   margin: 0 auto;
 }
-
-
 
 img {
   width: 100%;
@@ -71,9 +69,8 @@ main {
   display: grid;
   gap: 3.2rem;
   animation: downtop 700ms 350ms backwards;
-  /* o primeiro ms é onde começa o clique, o segundo ms é o delay em relação 
-  aonde vai terminar, no caso no opaccity 1 (100%) */
-  /* usaremos backwards ou forwards para usar o delay sempre*/
+  /* first ms is where starting in the clik, the second ms is a delay in regarding where go a final (opacity 1) */
+  /* backwards ou forwards for using a delay, ever*/
 }
 
 .card {
@@ -91,7 +88,7 @@ main {
 }
 
 .card img:hover {
-  transform: scale(1.1); /* transições das img */
+  transform: scale(1.1); /*Transitions */
   opacity: 0.4;
 }
 .card h2 {
@@ -100,7 +97,7 @@ main {
   left: 2.8rem;
   font-size: var(--fs-heading-sm);
 
-  font-size: 4rem; /* versao desktop */
+  font-size: 4rem; /*  desktop version*/
   font-weight: 800;
   display: flex;
   flex-direction: column;
@@ -119,7 +116,7 @@ main {
   display: inline-flex;
   align-items: center;
 
-  width: fit-content; /* tiramos a expansao dos spans em relação ao texto em baixo */
+  width: fit-content; /* we remove the expansion of spans regarding a down text */
 }
 
 @keyframes topdown {
@@ -130,7 +127,7 @@ main {
 
   100% {
     opacity: 1;
-    transform: transleteY(0);
+    transform: translateY(0);
   }
 }
 
@@ -146,39 +143,38 @@ main {
 }
 
 @media (min-width: 700px) {
-  
   .page {
-    max-width: 170rem; /* versao desktop */
+    max-width: 170rem; /* desktop */
 
-    padding: 0 5rem; /* versao desktop */
+    padding: 0 5rem; /* desktop */
   }
   main {
-    grid-template-columns: 1fr 1fr; /* mesmo alinhamento de colunas
-    tanto em cima quanto em baixo */
+    grid-template-columns: 1fr 1fr; /* same alignment of columns
+    in the up and down */
   }
 }
 
 @media (min-width: 930px) {
   main {
     grid-template-areas:
-      "A B B" /* versao desktop */
+      "A B B" /* desktop */
       "C C D";
   }
 
   main div:nth-child(1) {
-    /* versao desktop */
+    /*  desktop */
     grid-area: A;
   }
   main div:nth-child(2) {
-    /* versao desktop */
+    /* desktop */
     grid-area: B;
   }
   main div:nth-child(3) {
-    /* versao desktop */
+    /* desktop */
     grid-area: C;
   }
   main div:nth-child(4) {
-    /* versao desktop */
+    /* desktop */
     grid-area: D;
   }
 }
